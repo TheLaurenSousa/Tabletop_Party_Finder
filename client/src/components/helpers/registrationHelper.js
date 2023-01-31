@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-const registrationProcess = (user) => {
+const registrationHelper = (user) => {
     return axios.post('http://localhost:8000/user/create', user)
 }
 
-export default registrationProcess;
+export default registrationHelper;
