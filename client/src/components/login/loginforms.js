@@ -20,6 +20,7 @@ const LoginForms = () => {
                     localStorage.setItem('id', res.data.user._id);
                     navigate('/home');
                 } else {
+                    console.log(res);
                     const errorResponse = res.data.errors;
                     const errorArr = [];
                     for (const key of Object.keys(errorResponse)) {

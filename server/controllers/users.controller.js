@@ -7,14 +7,7 @@ module.exports.createUser = (request, response) => {
     const { username, password, confirmPassword } = request.body;
     User.create({username, password, confirmPassword})
         .then(user => {
-            const userToken = jwt.sign({
-                id: user._id,
-                username: user.username
-            }, process.env.SECRET_KEY);
-
-            response.cookie("usertoken", userToken, secretkey, {
-                httpOnly: true
-            }).json({ message: "Success!", user: user });
+            response.json({ message: "Success!", user: user });
         })
         .catch(err => response.json(err));
 }
@@ -58,15 +51,7 @@ module.exports.login = (request, response) => {
                             message: "Invalid login"
                         });
                     }
-                
-                const userToken = jwt.sign({
-                    id: user._id,
-                    username: user.username
-                }, process.env.SECRET_KEY);
-
-                response.cookie("usertoken", userToken, secretkey, {
-                    httpOnly: true
-                }).json({ message: "Success!", user: user});
+                response.json({ message: "Success!", user: user});
             });
             }
         });

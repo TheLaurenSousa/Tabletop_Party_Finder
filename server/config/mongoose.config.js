@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect("mongodb://localhost/tabletop_party_finder", {
+mongoose.connect("mongodb://127.0.0.1/tabletop_party_finder", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 })
